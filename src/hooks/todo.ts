@@ -28,13 +28,14 @@ export function useMoveTodo() {
 export function useCreateTodo() {
   const queryClient = useQueryClient();
 
-  const { mutate } = useMutation({
+  const response = useMutation({
     mutationFn: createTodo,
     onSuccess: () => queryClient.invalidateQueries(),
   });
 
   return {
-    create: mutate,
+    create: response.mutate,
+    ...response
   };
 }
 

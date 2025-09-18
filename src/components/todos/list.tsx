@@ -31,7 +31,9 @@ export function TodoList(_: TodoListProps) {
               /**
                * @todo: Fix this error for onTodoMove
                */
-              onTodoMove={move}
+              onTodoMove={(action) => {
+                move({ id: todo.id, action })
+              }}
               onTodoRemove={remove}
             />
           </ViewTransition>
